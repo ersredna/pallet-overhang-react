@@ -1,0 +1,10 @@
+.pallet {
+    position: relative;
+    border: 2px solid cyan;
+}
+
+.bag {
+    position: absolute;
+    box-sizing: border-box;
+    border: 2px solid red;
+}
