@@ -12,7 +12,7 @@ export default class App extends React.Component {
     super(props)
 
     this.state = {
-      specInputs: { palletWidth: '40', palletHeight: '48', bagWidth: '13', bagHeight: '17', allowableOverhang: '1', pattern: '4' }
+      specInputs: { palletWidth: 40, palletHeight: 48, bagWidth: 16, bagHeight: 24, allowableXOverhang: 1, allowableYOverhang: 1, pattern: '5' }
     }
   }
 
@@ -22,15 +22,17 @@ export default class App extends React.Component {
     this.setState(({ specInputs }) => {
       switch (id) {
         case 'pallet-width-input':
-          return { specInputs: { ...specInputs, palletWidth: value } }
+          return { specInputs: { ...specInputs, palletWidth: Number(value) } }
         case 'pallet-height-input':
-          return { specInputs: { ...specInputs, palletHeight: value } }
+          return { specInputs: { ...specInputs, palletHeight: Number(value) } }
         case 'bag-width-input':
-          return { specInputs: { ...specInputs, bagWidth: value } }
+          return { specInputs: { ...specInputs, bagWidth: Number(value) } }
         case 'bag-height-input':
-          return { specInputs: { ...specInputs, bagHeight: value } }
-        case 'allowable-overhang-input':
-          return { specInputs: { ...specInputs, allowableOverhang: value }}
+          return { specInputs: { ...specInputs, bagHeight: Number(value) } }
+        case 'allowable-x-overhang-input':
+          return { specInputs: { ...specInputs, allowableXOverhang: Number(value) }}
+        case 'allowable-y-overhang-input':
+          return { specInputs: { ...specInputs, allowableYOverhang: Number(value) }}
         case 'pattern-input':
           return { specInputs: { ...specInputs, pattern: value }}
         default:
@@ -59,8 +61,10 @@ export default class App extends React.Component {
     return (
       <>
         <SpecForm handleChange={this.handleChange} handleSwitch={this.handleSwitch} specInputs={this.state.specInputs} />
-        <Pallet specInputs={this.state.specInputs} />
+        <br />
         <OverhangInfo specInputs={this.state.specInputs} />
+        <br />
+        <Pallet specInputs={this.state.specInputs} />
       </>
     )
   }

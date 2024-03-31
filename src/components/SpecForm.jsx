@@ -39,14 +39,20 @@ export default function SpecForm({ handleChange, handleSwitch, specInputs }) {
             </div>
             <br/>
             <div>
-                <label htmlFor="allowable-overhang-input">Allowable Overhang(in): </label>
-                <input type="number" id="allowable-overhang-input" onChange={changeLink} value={specInputs.allowableOverhang} ></input>
+                <label htmlFor="allowable-x-overhang-input">Allowable Width Overhang(in): </label>
+                <input type="number" id="allowable-x-overhang-input" onChange={changeLink} value={specInputs.allowableXOverhang} ></input>
             </div>
+            <div>
+                <label htmlFor="allowable-y-overhang-input">Allowable Height Overhang(in): </label>
+                <input type="number" id="allowable-y-overhang-input" onChange={changeLink} value={specInputs.allowableYOverhang} ></input>
+            </div>
+            <br />
             <div>
                 <label htmlFor="pattern-input">Bag Pattern: </label>
                 <select id="pattern-input" onChange={changeLink} value={specInputs.pattern}>
                     <option value="5">5 Bag</option>
-                    <option value="4">4 Bag</option>
+                    <option value="4a">4 Bag (A)</option>
+                    <option value="4b">4 Bag (B)</option>
                     <option value="3">3 Bag</option>
                 </select>
             </div>
